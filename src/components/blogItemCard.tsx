@@ -13,7 +13,7 @@ function ItemCard() {
   return (
     <div className="flex flex-wrap justify-evenly">
       {cardData.map((card:Card) => (
-        <div key={card.id.toString()} className="max-w-[50%]">
+        <div key={card.id.toString()} className="w-[100%] md:w-[50%]">
           {card.alter ? (  
             <ImageFirstCard card={card} />
           ) : (

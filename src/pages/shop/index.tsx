@@ -18,8 +18,8 @@ function Index() {
             "@context": "http://schema.org",
             "@type": "Organization",
             "name": "Pure Beauty Shop",
-            "url": "https://www.example.com",
-            "logo": "https://www.example.com/logo.png"
+            "url": "https://purebeauth.vercel.app/",
+            "logo": "/Vector.svg"
           }
         `}</script>
       </Head>

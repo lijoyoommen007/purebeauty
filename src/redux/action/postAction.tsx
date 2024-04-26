@@ -5,7 +5,6 @@ import { setMediaData, setPostData } from '../slice/postSlice'; // Import additi
 export const listPostData = () => async (dispatch:any) => {
   try {
     // Dispatch loading status if needed
-    console.log("apiCall...");
     const postData = await getAllPost(); // Call getAllPost function instead of loginApi
     dispatch(setPostData({ postData }));
     return postData
@@ -18,7 +17,6 @@ export const listPostData = () => async (dispatch:any) => {
 export const listMediaData = () => async (dispatch:any) => {
     try {
       // Dispatch loading status if needed
-      console.log("apiCall...");
       const mediaData = await getAllMedia(); // Call getAllPost function instead of loginApi
       dispatch(setMediaData({ mediaData }));
       return mediaData

@@ -34,9 +34,7 @@ export function ImageFirstCard({ card }: { card: CardProps }) {
   );
 }
 
-export function ProductFirstCard({ card }: { card: CardProps }) {
-  console.log(card);
-  
+export function ProductFirstCard({ card }: { card: CardProps }) {  
   return (
     <Link className='h-full' href={`/${card.id}`}>
 

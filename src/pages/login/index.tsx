@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/action/authAction'; // Assuming login is an action creator
 import Link from 'next/link';
+import Head from 'next/head';
 
 interface LoginPageProps {}
 
@@ -18,7 +19,7 @@ const LoginPage: React.FC<LoginPageProps> = () => {
     try {
       setLoading(true);
       if (username && password) {
-        dispatch(login(username, password)); // Dispatch login action with username and password
+       await dispatch(login(username, password)); 
         setUsername('');
         setPassword('');
         setError('');
@@ -29,11 +30,28 @@ const LoginPage: React.FC<LoginPageProps> = () => {
     } catch (error) {
       setLoading(false);
       console.log(error);
-      setError((error as Error).message || 'An error occurred.'); // Handle login failure with a more informative message
+      setError((error as Error).message || 'An error occurred.'); 
     }
   };
 
   return (
+    <>
+    <Head>
+        <title>Pure Beauty User Login</title>
+        <meta name="description" content="Explore our collection of high-quality skin care products at Pure Beauty Shop. Find the perfect solution for your skincare needs." />
+        <meta name="keywords" content="pure beauty, skin care, beauty products, skincare, buy skincare online" />
+        <meta name="author" content="Lijoy Oommen" />
+        <link rel="icon" href="/Vector.svg" type="image/svg+xml" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Pure Beauty Shop",
+            "url": "https://purebeauth.vercel.app/",
+            "logo": "/Vector.svg"
+          }
+        `}</script>
+      </Head>
     <div style={{ minHeight: "100vh" }} className="pl-16 py-16 bg-customRed max-md:pl-5">
       <div className="flex gap-5 max-md:flex-col max-md:gap-0">
         <div className="flex flex-col w-[30%] max-md:ml-0 max-md:w-full mt-16 ">
@@ -84,6 +102,8 @@ const LoginPage: React.FC<LoginPageProps> = () => {
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

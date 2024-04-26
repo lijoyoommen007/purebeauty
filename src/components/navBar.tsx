@@ -31,8 +31,9 @@ function NavBar({ subNavData }: NavBarProps) {
 
   
   return (
-    <div className="flex flex-col bg-lightYellow">
-      <div className="flex z-10 gap-5 justify-between items-start self-center px-5 w-full max-md:flex-wrap max-md:max-w-full bg-lightYellow">
+    <>
+    <div  className="flex flex-col bg-lightYellow sticky top-0 z-50">
+      <div className="flex z-10 gap-5 justify-between items-start self-center px-5 w-full max-md:flex-wrap max-md:max-w-full bg-lightYellow ">
         <Link href={router.pathname=="/shop"?"/":"/shop"}>
         <div className="flex gap-1.5 mt-10 text-sm text-pink-900 whitespace-nowrap">
         {router.pathname=="/shop"?
@@ -65,10 +66,12 @@ function NavBar({ subNavData }: NavBarProps) {
           <AiOutlineLogout onClick={handleSignOut} style={{fontSize:"1.3rem",cursor:"pointer"}}/>
         </div>
       </div>
-      <div className="mb-5 justify-center items-start px-16 py-5 w-full text-2xl md:text-4xl text-orange-100 whitespace-nowrap bg-customRed rounded-none max-md:pr-5 max-md:pl-6 max-md:max-w-full font-serif">
+      
+    </div>
+    <div className=" mb-5 justify-center items-start px-16 py-5 w-full text-2xl md:text-4xl text-orange-100 whitespace-nowrap bg-customRed rounded-none max-md:pr-5 max-md:pl-6 max-md:max-w-full font-serif">
         {subNavData}
       </div>
-    </div>
+    </>
   );
 }
 

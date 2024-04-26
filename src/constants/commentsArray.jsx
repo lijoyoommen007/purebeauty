@@ -12,5 +12,4 @@ export const comments = [
       timestamp: "36 min ago",
       content: "Alright @Candice Wu, I'll be waiting.",
     },
-    // Add more comments as needed
   ];

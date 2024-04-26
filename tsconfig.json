@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/login/index.tsx", "src/pages/_app.jsx", "src/components/chatSection.tsx", "src/components/shopItemCard.tsx", "src/components/footer.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/login/index.tsx", "src/pages/_app.jsx", "src/components/chatSection.tsx", "src/components/shopItemCard.tsx", "src/components/footer.tsx", "src/utils/utils.js", "src/redux/store.js"],
   "exclude": ["node_modules"]
 }

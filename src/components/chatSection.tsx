@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { comments as initialComments } from "../constants/commentsArray";
-import { FormatDate } from "../utilFunctions/utilFunctions";
+import { FormatDate } from "../utils/utils";
+import { BsReply } from "react-icons/bs";
 
 // Define the type of comment
 type Comment = {
@@ -13,6 +14,7 @@ const ChatSection: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false); // State to track if comments section is expanded
   const [inputValue, setInputValue] = useState(""); // State to track the input value of the textarea
   const [userName, setUserName] = React.useState<string | null>(null);
+
   React.useEffect(() => {
     const username = localStorage.getItem('username');
     if (username) {
@@ -88,11 +90,8 @@ const ChatSection: React.FC = () => {
                 {comment.content}
               </div>
               <div className="flex gap-1.5 mt-6 text-base font-light leading-5 text-orange-100 whitespace-nowrap">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c47123029b4dffbdaa0f1f0348b7b50833365f6def0c8875f63159b662f96d7d?apiKey=087df68079624fb19f353daf9a4716f6&"
-                  className="shrink-0 aspect-square w-[22px]"
-                />
+              <BsReply style={{fontSize:"1.2rem"}} />
+
                 <div>Reply</div>
               </div>
             </div>

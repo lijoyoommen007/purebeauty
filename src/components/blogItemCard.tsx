@@ -1,26 +1,29 @@
+// ItemCard.js
+
 import * as React from "react";
-import { cardData } from "../constants/blogData";
 import { ImageFirstCard, ProductFirstCard } from "./imageComponent";
+import { useMergedData } from "../utils/utils"; // Import the utility function
 
 interface Card {
-  id: number; 
+  id: number;
   imgSrc: string;
   product: string;
   alter?: boolean;
 }
 
 function ItemCard() {
+  const mergedData = useMergedData();
+
   return (
     <div className="flex flex-wrap justify-evenly">
-      {cardData.map((card:Card) => (
-        <div key={card.id.toString()} className="w-[100%] md:w-[50%]">
-          {card.alter ? (  
-            <ImageFirstCard card={card} />
-          ) : (
-            <ProductFirstCard card={card} />
-          )}
-        </div>
-      ))}
+      {mergedData.map((mergedItem: any, index: number) => {
+        const componentToRender = index % 4 < 2 ? ProductFirstCard : ImageFirstCard;
+        return (
+          <div key={mergedItem.id.toString()} className="w-[100%] md:w-[50%]">
+            {React.createElement(componentToRender, { card: mergedItem })}
+          </div>
+        );
+      })}
     </div>
   );
 }
